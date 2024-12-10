@@ -1,0 +1,76 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model users {
+    user_id String @id @default(uuid())
+    email   String @unique
+    name    String
+}
+
+model main_sku {
+    id          Int     @id @default(autoincrement())
+    skuId       String  @unique
+    description String
+    au_enabled  Boolean @default(false)
+    nz_enabled  Boolean @default(false)
+    my_enabled  Boolean @default(false)
+    uk_enabled  Boolean @default(false)
+    compute     Int
+    references  String?
+
+    children   child_sku[]
+    vendorSkus vendor_sku[]
+}
+
+model child_sku {
+    id          Int          @id @default(autoincrement())
+    skuId       String
+    description String
+    au_enabled  Boolean      @default(false)
+    nz_enabled  Boolean      @default(false)
+    my_enabled  Boolean      @default(false)
+    uk_enabled  Boolean      @default(false)
+    compute     Int
+    parentId    String
+    parent      main_sku     @relation(fields: [parentId], references: [skuId])
+    vendorSkus  vendor_sku[]
+}
+
+model vendor {
+    id          Int          @id @default(autoincrement())
+    name        String
+    description String
+    skus        vendor_sku[]
+}
+
+model vendor_sku {
+    id         Int    @id @default(autoincrement())
+    vendorId   Int
+    skuId      Int?
+    childSkuId Int?
+    region     String
+    cost       Float
+
+    vendor   vendor     @relation(fields: [vendorId], references: [id])
+    mainSku  main_sku?  @relation(fields: [skuId], references: [id])
+    childSku child_sku? @relation(fields: [childSkuId], references: [id])
+
+    @@unique([vendorId, skuId, region])
+    @@unique([vendorId, childSkuId, region])
+}
+
+model quote {
+    id      String   @id @default(uuid())
+    created DateTime
+    updated DateTime
+}
+
+model quote_items {
+    id Int @id @default(autoincrement())
+}

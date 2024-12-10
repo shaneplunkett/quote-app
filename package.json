@@ -12,12 +12,15 @@
     "check": "bun run format && bun runt lint"
   },
   "devDependencies": {
-    "@types/bun": "latest",
+    "@eslint/js": "^9.16.0",
+    "@types/bun": "^1.1.14",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.4.2"
+    "globals": "^15.13.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.18.0"
   },
   "peerDependencies": {
     "typescript": "^5.7.2"
