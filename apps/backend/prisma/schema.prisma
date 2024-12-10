@@ -15,14 +15,14 @@ model users {
 
 model main_sku {
     id          Int     @id @default(autoincrement())
-    skuId       String  @unique
+    sku_id      String  @unique
     description String
     au_enabled  Boolean @default(false)
     nz_enabled  Boolean @default(false)
     my_enabled  Boolean @default(false)
     uk_enabled  Boolean @default(false)
     compute     Int
-    references  String?
+    refs        String?
 
     children   child_sku[]
     vendorSkus vendor_sku[]
@@ -30,7 +30,7 @@ model main_sku {
 
 model child_sku {
     id          Int          @id @default(autoincrement())
-    skuId       String
+    sku_id      String
     description String
     au_enabled  Boolean      @default(false)
     nz_enabled  Boolean      @default(false)
@@ -38,7 +38,7 @@ model child_sku {
     uk_enabled  Boolean      @default(false)
     compute     Int
     parentId    String
-    parent      main_sku     @relation(fields: [parentId], references: [skuId])
+    parent      main_sku     @relation(fields: [parentId], references: [sku_id])
     vendorSkus  vendor_sku[]
 }
 
@@ -50,19 +50,19 @@ model vendor {
 }
 
 model vendor_sku {
-    id         Int    @id @default(autoincrement())
-    vendorId   Int
-    skuId      Int?
-    childSkuId Int?
-    region     String
-    cost       Float
+    id          Int    @id @default(autoincrement())
+    vendorId    Int
+    sku_id      Int?
+    child_skuid Int?
+    region      String
+    cost        Float
 
     vendor   vendor     @relation(fields: [vendorId], references: [id])
-    mainSku  main_sku?  @relation(fields: [skuId], references: [id])
-    childSku child_sku? @relation(fields: [childSkuId], references: [id])
+    mainSku  main_sku?  @relation(fields: [sku_id], references: [id])
+    childSku child_sku? @relation(fields: [child_skuid], references: [id])
 
-    @@unique([vendorId, skuId, region])
-    @@unique([vendorId, childSkuId, region])
+    @@unique([vendorId, sku_id, region])
+    @@unique([vendorId, child_skuid, region])
 }
 
 model quote {
