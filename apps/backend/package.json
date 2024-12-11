@@ -2,6 +2,9 @@
   "name": "backend",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/node": "^22.10.1",
@@ -12,7 +15,7 @@
   },
   "dependencies": {
     "@apollo/server": "^4.11.2",
-    "@prisma/client": "6.0.1",
+    "@prisma/client": "^6.0.1",
     "@prisma/language-server": "^6.0.0",
     "graphql": "^16.9.0",
     "shared-types": "workspace:*"

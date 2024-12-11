@@ -37,8 +37,8 @@ model child_sku {
     my_enabled  Boolean      @default(false)
     uk_enabled  Boolean      @default(false)
     compute     Int
-    parentId    String
-    parent      main_sku     @relation(fields: [parentId], references: [sku_id])
+    parent_id   String
+    parent      main_sku     @relation(fields: [parent_id], references: [sku_id])
     vendorSkus  vendor_sku[]
 }
 
