@@ -40,7 +40,7 @@ Designed to be deployed as a classic scalable web app.
 I acknowledge the solution is overkill for the use case. This was an opportunity
 to fix a problem as well as round out my own understanding of scalable webapps.
 
-## Constributions
+## Contributing
 
 This repo is public source not open source. Feel free to fork it but I won't be
 accepting PRs.
