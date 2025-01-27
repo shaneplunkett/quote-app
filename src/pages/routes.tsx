@@ -1,12 +1,12 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from "react-router-dom";
 
+import LoginPage from "./LoginPage";
+import NotFound from "./NotFound";
 
-import LoginPage from './LoginPage'
-import NotFound from './NotFound'
-
-export const router = createBrowserRouter([{
-    path: '/',
+export const router = createBrowserRouter([
+  {
+    path: "/",
     element: <LoginPage />,
-    errorElement: <NotFound />
-}])
-
+    errorElement: <NotFound />,
+  },
+]);

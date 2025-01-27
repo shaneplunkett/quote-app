@@ -1,6 +1,10 @@
-import Message from './components/Message'
+import Message from "./components/Message";
 function App() {
-    return <div><Message /></div>
+  return (
+    <div>
+      <Message />
+    </div>
+  );
 }
 
 export default App;
