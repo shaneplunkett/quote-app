@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Main from "./Main";
+import Home from "./Home";
 import LoginPage from "./LoginPage";
 import NotFound from "./NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: <Home />,
     errorElement: <NotFound />,
   },
   {
