@@ -1,7 +1,7 @@
 function Login() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="flex-col justify-self-center w-100 p-20 outline-2 outline-gray-200 rounded-xl shadow-lg">
+    <div className="bg-purple-200 flex items-center justify-center min-h-screen">
+      <div className="bg-white flex-col justify-self-center w-100 p-20 outline-2 outline-gray-200 rounded-xl shadow-lg">
         <div>
           <img
             className="flex justify-self-center"
