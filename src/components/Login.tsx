@@ -1,7 +1,7 @@
 function Login() {
   return (
-    <div className="bg-purple-200 flex items-center justify-center min-h-screen">
-      <div className="bg-white flex-col justify-self-center w-100 p-20 outline-2 outline-gray-200 rounded-xl shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-purple-200">
+      <div className="w-100 flex-col justify-self-center rounded-xl bg-white p-20 shadow-lg outline outline-gray-200">
         <div>
           <img
             className="flex justify-self-center"
@@ -12,23 +12,23 @@ function Login() {
             Quotimator
           </h1>
         </div>
-        <div className="flex-col justify-self-center mt-2 mb-2">
+        <div className="mt-2 mb-2 flex-col justify-self-center">
           <p>E-Mail</p>
           <input
-            className="outline outline-gray-400 rounded min-w-60 py-0.5 px-1"
+            className="min-w-60 rounded px-1 py-0.5 outline outline-gray-400"
             type="email"
           />
         </div>
-        <div className="flex-col justify-self-center mt-2 mb-2">
+        <div className="mt-2 mb-2 flex-col justify-self-center">
           <p>Password</p>
           <input
-            className="outline outline-gray-400 rounded min-w-60 py-0.5 px-1"
+            className="min-w-60 rounded px-1 py-0.5 outline outline-gray-400"
             type="password"
           />
         </div>
         <div>
           <button
-            className="m-5 flex justify-self-center bg-purple-600 hover:bg-purple-800 text-white py-2 px-2.5 rounded-md font-medium"
+            className="m-5 flex justify-self-center rounded-md bg-purple-600 px-2.5 py-2 font-medium text-white hover:bg-purple-800"
             type="submit"
           >
             Login
